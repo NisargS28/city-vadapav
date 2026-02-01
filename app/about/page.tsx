@@ -38,32 +38,44 @@ const milestones = [
 
 const outlets = [
   {
-    name: "Maninagar Outlet",
-    location: "Maninagar, Ahmedabad",
-    opened: "2018",
+    name: "Gota Outlet",
+    location: "Shop-06, SHREE VISHNUDHARA CROSS ROAD, Knpis circle, opp. Setu Vertica, Gota, Ahmedabad, Gujarat 382481",
+    opened: "2016",
     description: "Our flagship outlet where it all began. Known for highest footfall and authentic taste.",
-    image: "/shop.jpg",
+    image: "/gota_ai.jpg",
+    objectPosition: "object-[50%_25%]",
+    objectFit: "object-cover",
+    mapLink: "https://maps.app.goo.gl/GYCTirczaDCUEmwB6",
   },
   {
-    name: "Satellite Outlet",
-    location: "Satellite, Ahmedabad",
+    name: "Chanakyapuri Outlet",
+    location: "14, Ground Floor, Madhav Complex, Near R.C. Technical College, Ghatlodia, Ahmedabad",
     opened: "2020",
     description: "Premium location serving the corporate crowd with quick service.",
-    image: "/shop.jpg",
+    image: "/chanakyapuri_ai.jpeg",
+    objectPosition: "object-[50%_10%]",
+    objectFit: "object-contain",
+    mapLink: "https://www.mappls.com/5igsud",
   },
   {
-    name: "Vastrapur Outlet",
-    location: "Vastrapur, Ahmedabad",
+    name: "Bopal Outlet",
+    location: "SHOP NO-5, CITY VADAPAV, opp. RUDRA SNACK, near HP PETROL PUMP, Bopal, Ahmedabad, Gujarat 380058",
     opened: "2021",
     description: "Popular among students and young professionals in the area.",
-    image: "/shop.jpg",
+    image: "/bopal_ai.jpeg",
+    objectPosition: "object-[50%_19%]",
+    objectFit: "object-cover",
+    mapLink: "https://maps.app.goo.gl/n6ZBWpzAGiLWaLQB8",
   },
   {
-    name: "CG Road Outlet",
-    location: "CG Road, Ahmedabad",
+    name: "Chandkheda Outlet",
+    location: "Shop No 19, Aastha Square, society, Kadi Nagrik chokadi, Chandkheda, Ahmedabad, Gujarat 382424",
     opened: "2022",
     description: "Located in the heart of shopping district, serves thousands daily.",
-    image: "/shop.jpg",
+    image: "/chandkheda_1.jpg",
+    objectPosition: "object-[50%_5%]",
+    objectFit: "object-contain",
+    mapLink: "https://maps.app.goo.gl/gXEdJwS3yZxDWEXz9",
   },
 ]
 
@@ -115,19 +127,22 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative rounded-3xl h-96 lg:h-[550px] overflow-hidden shadow-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent z-10"></div>
-              <Image
-                src="/logo.png"
-                alt="City Vadapav Founder"
-                fill
-                className="object-contain group-hover:scale-105 transition-transform duration-500"
-              />
+            <div className="space-y-4">
+              <div className="relative rounded-3xl h-96 lg:h-[550px] overflow-hidden shadow-2xl group">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent z-10"></div>
+                <Image
+                  src="/raghu_1.jpeg"
+                  alt="City Vadapav Founder"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p className="text-center text-2xl font-bold text-foreground">Prabhu Shankarji Prajapati</p>
             </div>
             <div className="space-y-6">
               <h2 className="text-3xl md:text-5xl font-extrabold mb-8 tracking-tight">The City Vadapav Story</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                It all started in 2016 with a simple dream – to bring the authentic taste of street-style 
+                It all started by Prabhu Shankarji Prajapati in 2016 with a simple dream – to bring the authentic taste of street-style 
                 vadapav to every corner of Gujarat. What began as a small stall in Ahmedabad has now 
                 transformed into a beloved brand with loyal customers across the city.
               </p>
@@ -210,33 +225,41 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {outlets.map((outlet, idx) => (
-              <Card key={idx} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 hover:-translate-y-2 group">
-                <div className="relative h-72 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent z-10"></div>
-                  <Image
-                    src={outlet.image}
-                    alt={outlet.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{outlet.name}</h3>
-                      <div className="flex items-center gap-2 text-muted-foreground mb-3">
-                        <MapPin size={18} className="text-primary" />
-                        <span className="font-medium">{outlet.location}</span>
+              <a
+                key={idx}
+                href={outlet.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 hover:-translate-y-2 group cursor-pointer">
+                  <div className="relative h-72 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent z-10"></div>
+                    <Image
+                      src={outlet.image}
+                      alt={outlet.name}
+                      fill
+                      className={`${outlet.objectFit} ${outlet.objectPosition} group-hover:scale-110 transition-transform duration-500`}
+                    />
+                  </div>
+                  <div className="p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{outlet.name}</h3>
+                        <div className="flex items-center gap-2 text-muted-foreground mb-3">
+                          <MapPin size={18} className="text-primary" />
+                          <span className="font-medium">{outlet.location}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full">
+                        <Clock size={16} className="text-primary" />
+                        <span className="text-sm font-bold text-primary">{outlet.opened}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full">
-                      <Clock size={16} className="text-primary" />
-                      <span className="text-sm font-bold text-primary">{outlet.opened}</span>
-                    </div>
+                    <p className="text-muted-foreground text-base leading-relaxed">{outlet.description}</p>
                   </div>
-                  <p className="text-muted-foreground text-base leading-relaxed">{outlet.description}</p>
-                </div>
-              </Card>
+                </Card>
+              </a>
             ))}
           </div>
         </div>

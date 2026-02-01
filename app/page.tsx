@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ChefHat, TrendingUp, Zap, Award, Users, IndianRupee, MapPin, BookOpen, Phone, Mail } from "lucide-react"
+import { ChefHat, TrendingUp, Zap, Award, Users, IndianRupee, MapPin, BookOpen, Phone, Mail, Briefcase } from "lucide-react"
 import { menuItems } from "@/lib/menuItems"
 
 const uspCards = [
@@ -24,7 +24,7 @@ const uspCards = [
   {
     icon: Zap,
     title: "Fast ROI",
-    description: "Recover investment in 18-20 months. Proven business model.",
+    description: "Recover investment in 18* months. Depends on location & operations.",
   },
   {
     icon: Award,
@@ -59,7 +59,7 @@ const franchiseModels = [
     title: "FOFO Model",
     subtitle: "Food Outlet, Franchisee Operated",
     investment: "₹ 6 Lakhs",
-    features: ["Small kiosk setup", "Minimal staff needed", "High profit margins", "Quick setup (15 days)"],
+    features: ["Machines & Equipments*","Interior", "Staff Training", "FSSAI License", "Marketing Support"],
   },
   // {
   //   title: "FOCO Model",
@@ -315,6 +315,41 @@ export default function Home() {
                   </div>
                 )
               })}
+            </div>
+          </Card>
+
+          {/* Franchise Requirements */}
+          <Card className="p-10 mb-16 border-2 hover:border-primary/30 transition-all duration-300 shadow-xl">
+            <h3 className="text-3xl font-extrabold mb-8 text-center tracking-tight">Franchise Requirements</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              <div className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-2xl mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                  <MapPin className="text-accent" size={36} />
+                </div>
+                <h4 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Space Requirement</h4>
+                <p className="text-muted-foreground leading-relaxed">Minimum 200-300 sq. ft. area in a high footfall location (commercial area, near colleges, offices, or transit points)</p>
+              </div>
+              <div className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-2xl mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                  <IndianRupee className="text-accent" size={36} />
+                </div>
+                <h4 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Investment Capacity</h4>
+                <p className="text-muted-foreground leading-relaxed">Initial investment of ₹6 lakhs onwards with working capital for first 3 months of operations</p>
+              </div>
+              <div className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-2xl mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                  <ChefHat className="text-accent" size={36} />
+                </div>
+                <h4 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Business Commitment</h4>
+                <p className="text-muted-foreground leading-relaxed">Dedication to maintain brand standards, quality, and willingness to actively participate in day-to-day operations</p>
+              </div>
+              <div className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-2xl mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                  <Briefcase className="text-accent" size={36} />
+                </div>
+                <h4 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Food Business Experience</h4>
+                <p className="text-muted-foreground leading-relaxed">Prior experience in food service, retail, or hospitality industry is preferred but not mandatory (training provided)</p>
+              </div>
             </div>
           </Card>
 
