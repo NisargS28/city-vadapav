@@ -106,7 +106,7 @@ export default function Home() {
                 <span className="text-secondary font-semibold text-sm tracking-wide uppercase">✨ Franchise Opportunity</span>
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-balance leading-tight tracking-tight">
-                Gujarat's Favorite Vadapav – Now a Profitable Franchise Opportunity
+                Mumbai's Favorite Vadapav – Now a Profitable Franchise Opportunity
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl mb-8 text-primary-foreground/90 leading-relaxed font-medium">
                 Join thousands of successful franchise partners. Low investment, high margins, fast ROI. Build your
@@ -415,13 +415,13 @@ export default function Home() {
           {/* Additional Contact Info */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <a href="tel:+918000000000" className="hover:text-primary transition-all duration-300 block group hover:-translate-y-1">
+              <a href="tel:+919265494325" className="hover:text-primary transition-all duration-300 block group hover:-translate-y-1">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                   <Phone className="text-primary" size={32} />
                 </div>
                 <p className="font-bold text-base mb-2">Call Us</p>
                 <p className="text-muted-foreground font-medium">
-                  +91 80000 00000
+                  +91 92654 94325
                 </p>
               </a>
             </div>

@@ -60,7 +60,7 @@ const outlets = [
   {
     name: "Bopal Outlet",
     location: "SHOP NO-5, CITY VADAPAV, opp. RUDRA SNACK, near HP PETROL PUMP, Bopal, Ahmedabad, Gujarat 380058",
-    opened: "2021",
+    opened: "2024",
     description: "Popular among students and young professionals in the area.",
     image: "/bopal_ai.jpeg",
     objectPosition: "object-[50%_19%]",
@@ -70,7 +70,7 @@ const outlets = [
   {
     name: "Chandkheda Outlet",
     location: "Shop No 19, Aastha Square, society, Kadi Nagrik chokadi, Chandkheda, Ahmedabad, Gujarat 382424",
-    opened: "2022",
+    opened: "2025",
     description: "Located in the heart of shopping district, serves thousands daily.",
     image: "/chandkheda_1.jpg",
     objectPosition: "object-[50%_5%]",
@@ -246,8 +246,8 @@ export default function AboutPage() {
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{outlet.name}</h3>
-                        <div className="flex items-center gap-2 text-muted-foreground mb-3">
-                          <MapPin size={18} className="text-primary" />
+                        <div className="flex items-start gap-2 text-muted-foreground mb-3">
+                          <MapPin size={20} className="text-primary flex-shrink-0 mt-1" />
                           <span className="font-medium">{outlet.location}</span>
                         </div>
                       </div>

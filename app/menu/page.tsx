@@ -56,8 +56,38 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Menu Photos Section */}
       <section className="py-20 md:py-28 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-4 tracking-tight">Our Complete Menu</h2>
+          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">Browse our full menu selection</p>
+          <div className="space-y-8 max-w-6xl mx-auto">
+            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 hover:-translate-y-2 group cursor-pointer">
+              <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+                <Image
+                  src="/menu-1.jpeg"
+                  alt="City Vadapav Menu 1"
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </Card>
+            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 hover:-translate-y-2 group cursor-pointer">
+              <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+                <Image
+                  src="/menu-2.jpeg"
+                  alt="City Vadapav Menu 2"
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">Want to Start Your Own Outlet?</h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
