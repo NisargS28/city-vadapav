@@ -70,6 +70,37 @@ const franchiseModels = [
 ]
 
 export default function Home() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormStatus('submitting')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('https://formspree.io/f/mpqlwngo', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+
+      if (response.ok) {
+        setFormStatus('success')
+        form.reset()
+        setTimeout(() => setFormStatus('idle'), 5000)
+      } else {
+        setFormStatus('error')
+        setTimeout(() => setFormStatus('idle'), 5000)
+      }
+    } catch (error) {
+      setFormStatus('error')
+      setTimeout(() => setFormStatus('idle'), 5000)
+    }
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -371,43 +402,71 @@ export default function Home() {
           </p>
 
           <Card className="p-10 shadow-2xl border-2 hover:border-primary/30 transition-all duration-300">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Full Name *"
                   className="px-5 py-4 rounded-xl border-2 border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background transition-all duration-300 font-medium"
                   required
+                  disabled={formStatus === 'submitting'}
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address *"
                   className="px-5 py-4 rounded-xl border-2 border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background transition-all duration-300 font-medium"
                   required
+                  disabled={formStatus === 'submitting'}
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Phone Number *"
                   className="px-5 py-4 rounded-xl border-2 border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background transition-all duration-300 font-medium"
                   required
+                  disabled={formStatus === 'submitting'}
                 />
                 <input
                   type="text"
+                  name="city"
                   placeholder="City *"
                   className="px-5 py-4 rounded-xl border-2 border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background transition-all duration-300 font-medium"
                   required
+                  disabled={formStatus === 'submitting'}
                 />
               </div>
               
               <textarea
+                name="message"
                 placeholder="Tell us about yourself and why you want to join City Vadapav..."
                 rows={5}
                 className="w-full px-5 py-4 rounded-xl border-2 border-border focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background resize-none transition-all duration-300 font-medium"
+                disabled={formStatus === 'submitting'}
               ></textarea>
-              <Button type="submit" size="lg" className="w-full text-base font-semibold py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                Submit Application
+              
+              {formStatus === 'success' && (
+                <div className="p-4 rounded-xl bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 text-center font-medium">
+                  Thank you! Your application has been submitted successfully. We'll contact you within 24 hours.
+                </div>
+              )}
+              
+              {formStatus === 'error' && (
+                <div className="p-4 rounded-xl bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200 text-center font-medium">
+                  Something went wrong. Please try again or contact us directly.
+                </div>
+              )}
+              
+              <Button 
+                type="submit" 
+                size="lg" 
+                className="w-full text-base font-semibold py-6 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                disabled={formStatus === 'submitting'}
+              >
+                {formStatus === 'submitting' ? 'Submitting...' : 'Submit Application'}
               </Button>
             </form>
           </Card>
